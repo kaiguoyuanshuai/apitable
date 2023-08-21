@@ -1,0 +1,114 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.apitable</groupId>
+    <artifactId>backend-server</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <properties>
+        <spring_boot_version>2.7.6</spring_boot_version>
+        <spring_cloud_version>2021.0.5</spring_cloud_version>
+        <spring_boot_admin_version>2.5.4</spring_boot_admin_version>
+        <aws_java_sdk_version>1.12.285</aws_java_sdk_version>
+        <io_grpc_version>1.49.0</io_grpc_version>
+        <protobuf_java_version>3.21.5</protobuf_java_version>
+        <spring_cloud_sleuth_otel_version>1.1.0</spring_cloud_sleuth_otel_version>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>jcenter</id>
+            <url>https://jcenter.bintray.com</url>
+        </repository>
+        <!-- Other repositories -->
+    </repositories>
+
+    <modules>
+        <module>application</module>
+        <module>shared/core</module>
+        <module>shared/starters/amqp</module>
+        <module>shared/starters/beetl</module>
+        <module>shared/starters/mail</module>
+        <module>shared/starters/oss</module>
+        <module>shared/starters/sms</module>
+        <module>shared/starters/socketio</module>
+    </modules>
+
+    <dependencyManagement>
+
+        <dependencies>
+            <!-- Spring Boot dependencies -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring_boot_version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- Spring Cloud dependencies -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring_cloud_version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- Spring Boot Admin dependencies -->
+            <dependency>
+                <groupId>de.codecentric</groupId>
+                <artifactId>spring-boot-admin-dependencies</artifactId>
+                <version>${spring_boot_admin_version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- AWS Java SDK dependencies -->
+            <dependency>
+                <groupId>com.amazonaws</groupId>
+                <artifactId>aws-java-sdk-bom</artifactId>
+                <version>${aws_java_sdk_version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- gRPC dependencies -->
+            <dependency>
+                <groupId>io.grpc</groupId>
+                <artifactId>grpc-bom</artifactId>
+                <version>${io_grpc_version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- Protocol Buffers dependencies -->
+            <dependency>
+                <groupId>com.google.protobuf</groupId>
+                <artifactId>protobuf-bom</artifactId>
+                <version>${protobuf_java_version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- Spring Cloud Sleuth Otel dependencies -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-sleuth-otel-dependencies</artifactId>
+                <version>${spring_cloud_sleuth_otel_version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- Other dependencies -->
+        </dependencies>
+    </dependencyManagement>
+    <build>
+        <!-- Configure build settings and plugins -->
+    </build>
+
+</project>
